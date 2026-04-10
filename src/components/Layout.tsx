@@ -19,7 +19,7 @@ const Logo = () => (
         fontWeight="700"
         letterSpacing="-0.5"
       >
-        Let EveryOne In
+        LetEveryoneIn
       </text>
     </svg>
   </Link>
