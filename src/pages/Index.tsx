@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TriangleAlert, Check, ShieldAlert, CircleCheck } from "lucide-react";
+import { ArrowRight, TriangleAlert, ShieldAlert, CircleCheck } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const Index = () => {
@@ -160,9 +160,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Fix 8: Pricing — comparison table, not three identical cards */}
+      {/* Pricing — compact three-card layout */}
       <section className="px-4 bg-background" style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
               Three Ways We Can Help
@@ -171,75 +171,60 @@ const Index = () => {
               Tailored solutions based on your urgency and needs.
             </p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full border border-border text-left">
-              <thead>
-                <tr className="bg-muted">
-                  <th className="p-6 text-sm font-medium text-muted-foreground uppercase tracking-wider border-r border-border w-1/4">Feature</th>
-                  <th className="p-6 border-r border-border w-1/4">
-                    <div className="text-xl font-bold text-foreground">Panic Button</div>
-                    <div className="text-3xl font-serif mt-1 text-brand-600">$2,500</div>
-                    <div className="text-sm text-muted-foreground mt-1">7 business days</div>
-                  </th>
-                  <th className="p-6 border-r border-border w-1/4 bg-brand-50">
-                    <div className="text-xl font-bold text-foreground">Fix It Right</div>
-                    <div className="text-3xl font-serif mt-1 text-brand-600">$5,000</div>
-                    <div className="text-sm text-muted-foreground mt-1">8-week engagement</div>
-                  </th>
-                  <th className="p-6 w-1/4">
-                    <div className="text-xl font-bold text-foreground">Stay Protected</div>
-                    <div className="text-3xl font-serif mt-1 text-brand-600">$8,000</div>
-                    <div className="text-sm text-muted-foreground mt-1">12 weeks + 1-year check</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {[
-                  { feature: "Pages audited", panic: "5–10 critical", fix: "Up to 30", stay: "Up to 50" },
-                  { feature: "Automated scanning", panic: true, fix: true, stay: true },
-                  { feature: "Screen reader testing (NVDA/JAWS)", panic: false, fix: true, stay: true },
-                  { feature: "Keyboard testing", panic: false, fix: true, stay: true },
-                  { feature: "iOS VoiceOver mobile testing", panic: false, fix: false, stay: true },
-                  { feature: "Prioritized issue list", panic: "Top 20", fix: "Full", stay: "Full" },
-                  { feature: "Remediation playbook", panic: "Quick-fix", fix: "Annotated screenshots", stay: "Annotated screenshots" },
-                  { feature: "Design-level recommendations", panic: false, fix: false, stay: true },
-                  { feature: "Check-in calls", panic: "1", fix: "8 weekly", stay: "12 weekly" },
-                  { feature: "Compliance posture statement", panic: true, fix: true, stay: true },
-                  { feature: "Post-remediation QA audit", panic: false, fix: false, stay: true },
-                  { feature: "1-year follow-up health check", panic: false, fix: false, stay: true },
-                  { feature: "Overlay assessment & removal plan", panic: false, fix: true, stay: true },
-                ].map((row, i) => (
-                  <tr key={i} className="hover:bg-muted/30">
-                    <td className="p-4 text-sm font-medium text-foreground border-r border-border">{row.feature}</td>
-                    {[row.panic, row.fix, row.stay].map((val, j) => (
-                      <td key={j} className={`p-4 text-sm text-center border-r border-border last:border-r-0 ${j === 1 ? 'bg-brand-50/50' : ''}`}>
-                        {val === true ? (
-                          <Check className="w-5 h-5 text-brand-600 mx-auto" aria-label="Included" />
-                        ) : val === false ? (
-                          <span className="text-neutral-400" aria-label="Not included">—</span>
-                        ) : (
-                          <span className="text-foreground">{val}</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center font-medium bg-primary text-primary-foreground h-12 px-8 rounded-md hover:bg-brand-700 transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center font-medium border border-border bg-background h-12 px-8 rounded-md hover:bg-muted transition-colors"
-            >
-              View Full Details
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 — Panic Button */}
+            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
+              <h3 className="text-2xl font-bold">Panic Button</h3>
+              <div className="text-3xl font-serif mt-2 text-brand-600">$2,500</div>
+              <p className="text-muted-foreground mt-4">
+                You got a demand letter this week. We'll find the top issues and give you a plan in 7 days.
+              </p>
+              <div className="mt-auto pt-6 border-t border-border">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2 — Fix It Right (highlighted) */}
+            <div className="rounded-2xl p-8 bg-background border-2 border-primary shadow-md flex flex-col relative">
+              <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                Most Popular
+              </span>
+              <h3 className="text-2xl font-bold">Fix It Right</h3>
+              <div className="text-3xl font-serif mt-2 text-brand-600">$5,000</div>
+              <p className="text-muted-foreground mt-4">
+                Comprehensive audit with a step-by-step remediation playbook and 8 weeks of support.
+              </p>
+              <div className="mt-auto pt-6 border-t border-border">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center w-full font-medium bg-primary text-primary-foreground h-12 rounded-md hover:bg-brand-700 transition-colors"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3 — Stay Protected */}
+            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
+              <h3 className="text-2xl font-bold">Stay Protected</h3>
+              <div className="text-3xl font-serif mt-2 text-brand-600">$8,000</div>
+              <p className="text-muted-foreground mt-4">
+                Full audit, design recommendations, post-launch QA, and a 1-year health check.
+              </p>
+              <div className="mt-auto pt-6 border-t border-border">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
