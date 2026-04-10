@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TriangleAlert, Check, ShieldAlert, CircleCheck } from "lucide-react";
+import { ArrowRight, TriangleAlert, ShieldAlert, CircleCheck } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const Index = () => {
