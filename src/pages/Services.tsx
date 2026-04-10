@@ -140,14 +140,6 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center font-medium bg-primary text-primary-foreground h-12 px-8 rounded-md hover:bg-brand-700 transition-colors"
-            >
-              Select a Plan
-            </Link>
-          </div>
 
           {/* Add-On */}
           <div className="mt-12 border-t-2 border-brand-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-4xl mx-auto">
