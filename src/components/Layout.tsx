@@ -140,7 +140,7 @@ const Footer = () => (
           </div>
         </nav>
         <div className="text-sm text-muted-foreground">
-          <p>dan@LetEveryOneIn.com</p>
+          <p>Dan@LetEveryoneIn.com</p>
           <p className="mt-1">Steadfast Accessibility LLC</p>
         </div>
       </div>
