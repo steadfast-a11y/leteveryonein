@@ -20,3 +20,4 @@ jobs:
           git config user.name "GitHub Actions"
           git remote add target https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/steadfast-a11y/leteveryonein.git
           git push target main --force
+# Sync trigger
