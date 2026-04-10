@@ -148,7 +148,7 @@ const Contact = () => {
               </form>
             )}
             <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground text-center md:text-left">
-              <div>dan@LetEveryOneIn.com</div>
+              <div>Dan@LetEveryoneIn.com</div>
               <div>We respond within one business day.</div>
               <div>Your information is confidential.</div>
             </div>
