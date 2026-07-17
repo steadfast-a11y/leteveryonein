@@ -154,78 +154,28 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">
               Comprehensive audit + plain-English remediation playbook + implementation support.
               <br />
-              <strong className="text-foreground mt-2 inline-block">$2,500–$8,000.</strong>
+              <strong className="text-foreground mt-2 inline-block">Priced for small business, not Fortune 500.</strong>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Pricing — compact three-card layout */}
+      {/* Service levels — no pricing, contact CTA */}
       <section className="px-4 bg-background" style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
-              Three Ways We Can Help
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Tailored solutions based on your urgency and needs.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 — Panic Button */}
-            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
-              <h3 className="text-2xl font-bold">Panic Button</h3>
-              <div className="text-3xl font-serif mt-2 text-brand-600">$2,500</div>
-              <p className="text-muted-foreground mt-4">
-                You got a demand letter this week. We'll find the top issues and give you a plan in 7 days.
-              </p>
-              <div className="mt-auto pt-6 border-t border-border">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2 — Fix It Right (highlighted) */}
-            <div className="rounded-2xl p-8 bg-background border-2 border-primary shadow-md flex flex-col relative">
-              <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                Most Popular
-              </span>
-              <h3 className="text-2xl font-bold">Fix It Right</h3>
-              <div className="text-3xl font-serif mt-2 text-brand-600">$5,000</div>
-              <p className="text-muted-foreground mt-4">
-                Comprehensive audit with a step-by-step remediation playbook and 8 weeks of support.
-              </p>
-              <div className="mt-auto pt-6 border-t border-border">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center w-full font-medium bg-primary text-primary-foreground h-12 rounded-md hover:bg-brand-700 transition-colors"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3 — Stay Protected */}
-            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
-              <h3 className="text-2xl font-bold">Stay Protected</h3>
-              <div className="text-3xl font-serif mt-2 text-brand-600">$8,000</div>
-              <p className="text-muted-foreground mt-4">
-                Full audit, design recommendations, post-launch QA, and a 1-year health check.
-              </p>
-              <div className="mt-auto pt-6 border-t border-border">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-          </div>
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
+            Three Ways We Can Help
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            We offer three levels of service — from urgent triage to full ongoing protection — tailored to your situation. Every engagement includes a comprehensive audit, a plain-English remediation playbook, and hands-on support.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 font-medium bg-primary text-primary-foreground h-14 px-8 text-lg rounded-md hover:bg-brand-700 transition-colors"
+          >
+            Let's Discuss Your Situation
+            <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 

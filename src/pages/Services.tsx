@@ -8,10 +8,10 @@ const Services = () => {
       <section className="pt-20 pb-12 px-4 bg-brand-50">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight mb-6">
-            Clear Pricing. Expert Guidance.
+            Expert Guidance. Real Results.
           </h1>
           <p className="text-xl text-muted-foreground">
-            Enterprise-grade accessibility auditing sized and priced for small business realities.
+            Enterprise-grade accessibility auditing sized for small business realities.
           </p>
         </div>
       </section>
@@ -40,124 +40,25 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Pricing cards */}
+      {/* Service levels — no pricing, contact CTA */}
       <section className="px-4 bg-muted/30 border-y border-border" style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 — Panic Button */}
-            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
-              <h3 className="text-2xl font-bold">Panic Button</h3>
-              <div className="text-3xl font-serif mt-2 text-foreground">$2,500</div>
-              <p className="text-accent-red font-medium text-sm mt-3">Best for: demand letter received this week</p>
-              <p className="text-muted-foreground text-sm mt-1">Timeline: 7 business days</p>
-              <ul className="mt-6 space-y-3 flex-1">
-                {[
-                  "Audit of 5–10 critical pages",
-                  "Top 20 issues prioritized by legal risk",
-                  "Quick-fix instructions",
-                  "Compliance posture statement",
-                  "1 check-in call",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-sm text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-6 border-t border-border">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
-                >
-                  Select Plan
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2 — Fix It Right (highlighted) */}
-            <div className="rounded-2xl p-8 bg-background border-2 border-primary shadow-md flex flex-col relative">
-              <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                Most Popular
-              </span>
-              <h3 className="text-2xl font-bold">Fix It Right</h3>
-              <div className="text-3xl font-serif mt-2 text-foreground">$5,000</div>
-              <p className="font-medium text-sm mt-3">Best for: fix accessibility properly</p>
-              <p className="text-muted-foreground text-sm mt-1">Timeline: 8-week engagement</p>
-              <ul className="mt-6 space-y-3 flex-1">
-                {[
-                  "Audit of up to 30 pages (automated + NVDA/JAWS + keyboard + manual)",
-                  "Full remediation playbook with annotated screenshots",
-                  "Prioritized roadmap",
-                  "Weekly check-in calls (8 total)",
-                  "Compliance documentation package",
-                  "Overlay assessment and removal plan",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-sm text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-6 border-t border-border">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center w-full font-medium bg-primary text-primary-foreground h-12 rounded-md hover:bg-brand-700 transition-colors"
-                >
-                  Select Plan
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3 — Stay Protected */}
-            <div className="rounded-2xl p-8 bg-background border border-border flex flex-col">
-              <h3 className="text-2xl font-bold">Stay Protected</h3>
-              <div className="text-3xl font-serif mt-2 text-foreground">$8,000</div>
-              <p className="text-accent-red font-medium text-sm mt-3">Best for: sued before or staying ahead</p>
-              <p className="text-muted-foreground text-sm mt-1">Timeline: 12-week + 1-year health check</p>
-              <ul className="mt-6 space-y-3 flex-1">
-                {[
-                  "Everything in Fix It Right + 50 pages",
-                  "iOS VoiceOver mobile testing",
-                  "Design-level recommendations",
-                  "Post-remediation QA audit",
-                  "1-year follow-up health check",
-                  "Ongoing compliance documentation",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-sm text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-6 border-t border-border">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center w-full font-medium border border-border bg-background h-12 rounded-md hover:bg-muted transition-colors"
-                >
-                  Select Plan
-                </Link>
-              </div>
-            </div>
-          </div>
-
-
-          {/* Add-On */}
-          <div className="mt-12 border-t-2 border-brand-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-4xl mx-auto">
-            <div>
-              <h3 className="text-lg font-bold flex items-center gap-2">
-                Add-On: Overlay Removal <span className="text-muted-foreground font-normal ml-2">$1,500</span>
-              </h3>
-              <p className="text-sm text-muted-foreground mt-2 max-w-xl">
-                Systematic removal of accessiBe/UserWay/similar, re-audit revealing what overlay was hiding, before/after documentation, and remediation guidance for masked issues.
-              </p>
-            </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 text-sm font-medium border border-border bg-background h-10 px-4 rounded-md hover:bg-muted transition-colors shrink-0"
-            >
-              Add to Plan
-            </Link>
-          </div>
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+            Three Levels of Service
+          </h2>
+          <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
+            We offer three levels of service — from urgent triage to full ongoing protection — tailored to your situation. Every engagement includes a comprehensive audit, a plain-English remediation playbook, and hands-on support.
+          </p>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Reach out and we'll recommend the right fit based on your platform, your timeline, and whether you're responding to a demand letter or getting ahead of one.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 font-medium bg-primary text-primary-foreground h-14 px-8 text-lg rounded-md hover:bg-brand-700 transition-colors"
+          >
+            Let's Discuss Your Situation
+            <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
@@ -188,10 +89,10 @@ const Services = () => {
       <section className="px-4 bg-brand-900 text-brand-50 text-center" style={{ paddingTop: 'var(--space-section-dramatic)', paddingBottom: 'var(--space-section-dramatic)' }}>
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-brand-50">
-            Not sure which tier you need?
+            Not sure where to start?
           </h2>
           <p className="text-xl text-brand-200 mb-8">
-            Reach out and we'll help you figure it out.
+            A 15-minute call costs you nothing. We'll listen to your situation and recommend next steps.
           </p>
           <Link
             to="/contact"
