@@ -1,0 +1,137 @@
+{
+  "schema_version": "0.1.0",
+  "service": {
+    "name": "LetEveryoneIn",
+    "description": "ADA accessibility audit service for small businesses facing demand letters or lawsuits under California's Unruh Act. Expert-led audits with a 7-layer automated scanning pipeline (axe-core, HTML_CodeSniffer, QualWeb, custom gap checks, tab-stop analysis, AI evaluation) plus human expert review.",
+    "status": "beta",
+    "contact": "dan@leteveryonein.com",
+    "homepage": "https://leteveryonein.com",
+    "human_in_the_loop": "All audit findings are reviewed by a credentialed human expert before release. This is not a fully automated service — expert judgment is applied to every report.",
+    "pricing": {
+      "model": "per-audit",
+      "preview": "free",
+      "full_report": "$75 USD",
+      "details": "Free redacted preview showing violation types and severity. Full report ($75) includes complete findings, CSS selectors, fix instructions, hours estimates, attorney-ready summary, and remediation quote."
+    }
+  },
+  "api": {
+    "base_url": "https://lei-hackathon.steadfast-accessibility-com.workers.dev",
+    "authentication": {
+      "type": "bearer",
+      "header": "Authorization",
+      "format": "Bearer <token>",
+      "instructions": "Contact dan@leteveryonein.com to request an API token."
+    },
+    "endpoints": [
+      {
+        "path": "/api/audit/submit",
+        "method": "POST",
+        "description": "Submit a URL and optional demand letter text for an ADA accessibility audit.",
+        "request_body": {
+          "content_type": "application/json",
+          "fields": {
+            "url": {
+              "type": "string",
+              "required": true,
+              "description": "The URL of the website to audit."
+            },
+            "demand_letter_text": {
+              "type": "string",
+              "required": false,
+              "description": "Text of the demand letter or lawsuit complaint, if applicable. Helps prioritize findings by cited violations."
+            },
+            "business_name": {
+              "type": "string",
+              "required": false,
+              "description": "Name of the business being audited."
+            },
+            "contact_email": {
+              "type": "string",
+              "required": false,
+              "description": "Email address for audit notifications."
+            }
+          }
+        },
+        "response": {
+          "audit_id": "string — unique identifier for tracking this audit",
+          "status": "string — initial status (typically 'queued')",
+          "estimated_completion": "string — ISO 8601 datetime"
+        }
+      },
+      {
+        "path": "/api/audit/{id}/status",
+        "method": "GET",
+        "description": "Check the progress of a submitted audit.",
+        "response": {
+          "audit_id": "string",
+          "status": "string — one of: queued, scanning, expert_review, complete, failed",
+          "progress_pct": "number — 0 to 100",
+          "estimated_completion": "string — ISO 8601 datetime"
+        }
+      },
+      {
+        "path": "/api/audit/{id}/preview",
+        "method": "GET",
+        "description": "Free redacted preview of audit findings. Shows violation types and severity levels but hides specific fix details, CSS selectors, and remediation instructions.",
+        "response": {
+          "audit_id": "string",
+          "url_audited": "string",
+          "scan_date": "string — ISO 8601 datetime",
+          "summary": {
+            "total_violations": "number",
+            "critical": "number",
+            "serious": "number",
+            "moderate": "number",
+            "minor": "number"
+          },
+          "violations": [
+            {
+              "type": "string — e.g. 'missing-alt-text', 'color-contrast', 'keyboard-trap'",
+              "severity": "string — critical, serious, moderate, minor",
+              "wcag_criterion": "string — e.g. '1.1.1 Non-text Content'",
+              "count": "number",
+              "fix_details": "string — '[Upgrade to full report for fix details]'"
+            }
+          ],
+          "upgrade_url": "string — URL to purchase the full report"
+        }
+      },
+      {
+        "path": "/api/audit/{id}/report",
+        "method": "GET",
+        "description": "Full paid report ($75) with complete findings, CSS selectors, fix instructions, estimated remediation hours, attorney-ready compliance summary, and remediation quote.",
+        "requires_payment": true,
+        "price": "$75 USD",
+        "response": {
+          "audit_id": "string",
+          "url_audited": "string",
+          "scan_date": "string — ISO 8601 datetime",
+          "summary": {
+            "total_violations": "number",
+            "critical": "number",
+            "serious": "number",
+            "moderate": "number",
+            "minor": "number",
+            "estimated_remediation_hours": "number"
+          },
+          "violations": [
+            {
+              "type": "string",
+              "severity": "string",
+              "wcag_criterion": "string",
+              "count": "number",
+              "affected_elements": ["string — CSS selectors"],
+              "fix_instructions": "string — step-by-step remediation guidance",
+              "estimated_hours": "number"
+            }
+          ],
+          "attorney_summary": "string — plain-language compliance posture statement suitable for legal counsel",
+          "remediation_quote": {
+            "estimated_hours": "number",
+            "scope": "string — what the remediation covers"
+          }
+        }
+      }
+    ]
+  }
+}
